@@ -1,0 +1,20 @@
+{
+  "generator-cake-addin": {
+    "promptValues": {
+      "projectName": "Pandoc",
+      "repositoryOwner": "JuergenRB",
+      "projectMaintainer": "JuergenRB",
+      "author": "Jürgen Rosenthal-Buroh",
+      "description": "Pandoc",
+      "licenseType": "MIT",
+      "sourceDir": "./src/cake.pandoc",
+      "scriptName": "recipe.cake",
+      "enableAllContributors": false,
+      "enableWyam": true,
+      "enableTravis": false,
+      "useTabs": false,
+      "indentSize": 4,
+      "indentYamlSize": 2
+    }
+  }
+}
