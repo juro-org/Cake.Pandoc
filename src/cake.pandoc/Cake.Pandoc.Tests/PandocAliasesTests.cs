@@ -30,14 +30,39 @@ namespace Cake.Pandoc.Tests
     using Cake.Testing;
     using NUnit.Framework;
 
+    using Shouldly;
+
     [TestFixture]
     [TestOf(typeof(PandocAliases))]
     public class PandocAliasesTests
     {
         [Test]
-        public void Need_More_Unit_Test_Implementations()
+        public void PandacInit_JustCallPandoc()
         {
-            Assert.That(false, Is.True, "More unit tests need to be implemented for aliases class");
+            var fixture = new PandocAliasesFixture();
+
+            fixture.Settings = null;
+            var actual = fixture.Run();
+
+            actual.Args.ShouldBe("");
+        }
+
+        [Test]
+        public void PandacWithSettings_UsePassedSettings()
+        {
+            var fixture = new PandocAliasesFixture();
+
+            fixture.Settings = new PandocSettings()
+            {
+                From = Enums.From.Commonmark,
+                To = Enums.To.AsciiDoc,
+                FailIfWarnings = true
+            };
+            var actual = fixture.Run();
+
+            actual.Args.ShouldContain("--from=commonmark");
+            actual.Args.ShouldContain("--to=asciidoc");
+            actual.Args.ShouldContain("--fail-if-warnings");
         }
     }
 }
