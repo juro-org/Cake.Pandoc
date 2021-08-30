@@ -22,6 +22,14 @@
  * SOFTWARE.
  */
 
+/* Hint Exclude from DupFinder because of:
+ * Duplicate Located with a cost of 75, across 2 Fragments
+ * File Name: src\cake.pandoc\Cake.Pandoc\PandocSettings.cs Line Numbers: 198 - 200
+ * File Name: src\cake.pandoc\Cake.Pandoc\PandocSettings.cs Line Numbers: 206 - 208
+ *
+ * NTH: MakeAbsolute in Path [BaseClass of DirectoryPath and FilePath] in Cake.Core
+*/
+
 namespace Cake.Pandoc
 {
     using System.Linq;
@@ -203,7 +211,7 @@ List supported extensions for FORMAT, one per line, preceded by a + or - indicat
                     if (p.PropertyType == typeof(DirectoryPath))
                     {
                         var value = p.GetValue(this) as DirectoryPath;
-                        if(value == null) { return; }
+                        if (value == null) { return; }
                         builder.Append(string.Format("--{0}={1}", attr.Name, value.MakeAbsolute(environment).FullPath.Quote()));
                         return;
                     }

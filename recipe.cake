@@ -17,6 +17,12 @@ BuildParameters.SetParameters(
 
 BuildParameters.PrintParameters(Context);
 
-ToolSettings.SetToolSettings(context: Context);
+ToolSettings.SetToolSettings(context: Context,
+							dupFinderExcludePattern: new string[] {
+                            BuildParameters.RootDirectoryPath + "/**/Cake.Pandoc.Tests/**/*.cs",
+                            BuildParameters.RootDirectoryPath + "/**/Cake.Pandoc/**/*.AssemblyInfo.cs",
+							BuildParameters.RootDirectoryPath + "/**/Cake.Pandoc/PandocSettings.cs"	
+							}						
+);
 
 Build.RunDotNetCore();
