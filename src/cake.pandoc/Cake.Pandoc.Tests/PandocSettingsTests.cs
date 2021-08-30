@@ -1,13 +1,13 @@
 namespace Cake.Pandoc.Tests
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Cake.Core;
     using Cake.Core.IO;
     using Cake.Testing;
+
     using NUnit.Framework;
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     [TestFixture]
     [TestOf(typeof(PandocSettings))]
@@ -25,7 +25,7 @@ namespace Cake.Pandoc.Tests
                 yield return (s => s.Output = new FilePath("/File.txt"), "--output=\"/File.txt\"");
                 yield return (s => s.Output = "/FILE", "--output=\"/FILE\"");
                 yield return (s => s.DataDirectory = new DirectoryPath("/foo"), "--data-dir=\"/foo\"");
-                yield return (s => s.DataDirectory ="/foo", "--data-dir=\"/foo\"");
+                yield return (s => s.DataDirectory = "/foo", "--data-dir=\"/foo\"");
                 yield return (s => s.Defaults = new FilePath("/FILE.yml"), "--defaults=\"/FILE.yml\"");
                 yield return (s => s.Defaults = "/FILE.yml", "--defaults=\"/FILE.yml\"");
                 yield return (s => s.BashCompletion = true, "--bash-completion");
@@ -48,7 +48,6 @@ namespace Cake.Pandoc.Tests
                 return Data.Select(x => new[] { (object)x.Item1, x.Item2 }).GetEnumerator();
             }
         }
-
 
         [Test, TestCaseSource(nameof(TestData))]
         public void Test_all_setters(Action<PandocSettings> arrange, string expected)

@@ -32,14 +32,14 @@
 
 namespace Cake.Pandoc
 {
-    using System.Linq;
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
     using Cake.Core;
     using Cake.Core.IO;
     using Cake.Core.Tooling;
-    using System.Reflection;
+
     using System;
+    using System.Linq;
+    using System.Reflection;
+    using System.Runtime.Serialization;
 
     public sealed class PandocSettings : ToolSettings
     {
@@ -57,7 +57,7 @@ namespace Cake.Pandoc
         /// Extensions can be individually enabled or disabled by appending +EXTENSION or -EXTENSION to the format name
         /// </summary>
         [DataMember(Name = "from")]
-        public Enums.From From { get;  set; }
+        public Enums.From From { get; set; }
 
         /// <summary>
         /// Specify output format
@@ -102,7 +102,6 @@ namespace Cake.Pandoc
         [DataMember(Name = "quiet")]
         public bool Quiet { get; set; }
 
-
         /// <summary>
         /// Exit with error status if there are any warnings.
         /// </summary>
@@ -120,7 +119,6 @@ namespace Cake.Pandoc
         /// </summary>
         [DataMember(Name = "list-input-formats")]
         public bool ListInputFormats { get; set; }
-
 
         /// <summary>
         /// List supported output formats, one per line.
@@ -157,11 +155,10 @@ List supported extensions for FORMAT, one per line, preceded by a + or - indicat
         [DataMember(Name = "help")]
         public bool Help { get; set; }
 
-        #endregion
+        #endregion General options
 
         public void Evaluate(ProcessArgumentBuilder builder, ICakeEnvironment environment)
         {
-
             this.GetType()
                 .GetProperties()
                 .ToList()

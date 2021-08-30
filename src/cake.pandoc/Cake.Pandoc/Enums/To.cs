@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Cake.Pandoc.Enums
 {
     public class To : EnumBaseType
@@ -25,7 +21,6 @@ namespace Cake.Pandoc.Enums
         /// CommonMark Markdown with extensions.
         /// </summary>
         public static readonly To CommonmarkWithExtensions = new To("commonmark_x");
-
 
         /// <summary>
         /// (ConTeXt).
@@ -87,7 +82,6 @@ namespace Cake.Pandoc.Enums
         /// </summary>
         public static readonly To Html4 = new To("html4");
 
-
         /// <summary>
         /// (InDesign ICML).
         /// </summary>
@@ -117,10 +111,12 @@ namespace Cake.Pandoc.Enums
         /// JATS XML.
         /// </summary>
         public static readonly To Jats = new To("jats");
+
         /// <summary>
         /// Jira/Confluence wiki markup.
         /// </summary>
         public static readonly To Jira = new To("jira");
+
         /// <summary>
         /// JSON version of native AST.
         /// </summary>
@@ -140,18 +136,22 @@ namespace Cake.Pandoc.Enums
         /// Pandoc’s Markdown.
         /// </summary>
         public static readonly To Markdown = new To("markdown");
+
         /// <summary>
         /// MultiMarkdown.
         /// </summary>
         public static readonly To MultiMarkdown = new To("markdown_mmd");
+
         /// <summary>
         /// PHP Markdown Extra.
         /// </summary>
         public static readonly To PhpExtraMarkdown = new To("markdown_phpextra");
+
         /// <summary>
         /// original unextended Markdown.
         /// </summary>
         public static readonly To StrictMarkdown = new To("markdown_strict");
+
         /// <summary>
         /// MediaWiki markup.
         /// </summary>
@@ -212,7 +212,6 @@ namespace Cake.Pandoc.Enums
         /// </summary>
         public static readonly To ReStructuredText = new To("rst");
 
-
         /// <summary>
         /// (Rich Text Format).
         /// </summary>
@@ -223,12 +222,10 @@ namespace Cake.Pandoc.Enums
         /// </summary>
         public static readonly To Texinfo = new To("texinfo");
 
-
         /// <summary>
         /// Textile.
         /// </summary>
         public static readonly To Textile = new To("textile");
-
 
         /// <summary>
         /// (Slideous HTML and JavaScript slide show).

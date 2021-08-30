@@ -26,7 +26,6 @@ namespace Cake.Pandoc
 {
     using Cake.Core;
     using Cake.Core.Annotations;
-    using Cake.Core.IO;
 
     [CakeAliasCategory("Pandoc")]
     public static class PandocAliases

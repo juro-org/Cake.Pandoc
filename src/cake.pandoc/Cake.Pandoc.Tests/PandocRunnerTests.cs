@@ -24,10 +24,12 @@
 
 namespace Cake.Pandoc.Tests
 {
-    using System;
     using Cake.Core;
     using Cake.Testing;
+
     using NUnit.Framework;
+
+    using System;
 
     [TestFixture]
     [TestOf(typeof(PandocRunner))]
