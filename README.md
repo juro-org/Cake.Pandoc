@@ -1,11 +1,9 @@
 # Cake.Pandoc
 
 [![standard-readme compliant][]][standard-readme]
-[![Appveyor build][appveyorimage]][appveyor]
-[![Codecov Report][codecovimage]][codecov]
 [![NuGet package][nugetimage]][nuget]
 
-Pandoc
+Alias to assist with running Pandoc from Cake build scripts
 
 ## Table of Contents
 
@@ -18,17 +16,26 @@ Pandoc
 ## Install
 
 ```cs
-#addin nuget:?package=Cake.Pandoc
+#addin nuget:?package=Cake.Pandoc&version={Version}
 ```
 
 ## Usage
 
-```cs
-#addin nuget:?package=Cake.Pandoc
+This addin exposes the functionality of [Pandoc] to the Cake by being a very thin wrapper around its command line interface; this means that you can use Cake.Pandoc in the same way as you would normally use [Pandoc CLI].
 
-Task("MyTask").Does(() => {
-  Pandoc();
-});
+```cs
+#addin nuget:?package=Cake.Pandoc={Version}
+// Install Pandoc.Windows as a Cake Tool
+#tool nuget:?package=Pandoc.Windows&version=2.1.0
+
+Task("Pandoc-Example-Html")
+    .Does(() =>
+    {
+        var settings = new PandocSettings();
+        settings.Output = File("output.html");
+        settings.Files.Add(File("path/to/input.txt"));
+        Pandoc(settings);
+    });
 ```
 
 ## Maintainer
@@ -47,10 +54,6 @@ Small note: If editing the Readme, please conform to the [standard-readme][] spe
 
 [MIT License © Jürgen Rosenthal-Buroh][license]
 
-[appveyor]: https://ci.appveyor.com/project/juergenrb/cake-pandoc
-[appveyorimage]: https://img.shields.io/appveyor/ci/juergenrb/cake-pandoc.svg?logo=appveyor&style=flat-square
-[codecov]: https://codecov.io/gh/JuergenRB/Cake.Pandoc
-[codecovimage]: https://img.shields.io/codecov/c/github/JuergenRB/Cake.Pandoc.svg?logo=codecov&style=flat-square
 [contrib-covenant]: https://www.contributor-covenant.org/version/1/4/code-of-conduct
 [maintainer]: https://github.com/JuergenRB
 [nuget]: https://nuget.org/packages/Cake.Pandoc
@@ -58,3 +61,5 @@ Small note: If editing the Readme, please conform to the [standard-readme][] spe
 [license]: LICENSE.txt
 [standard-readme]: https://github.com/RichardLitt/standard-readme
 [standard-readme compliant]: https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square
+[Pandoc]: https://pandoc.org/
+[Pandoc CLI]: https://pandoc.org/MANUAL.html#options
