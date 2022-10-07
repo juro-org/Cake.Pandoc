@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=2.2.1
+#load nuget:?package=Cake.Recipe&version=3.0.1
 
 Environment.SetVariableNames();
 
@@ -19,13 +19,6 @@ BuildParameters.SetParameters(
 
 
 BuildParameters.PrintParameters(Context);
-
-ToolSettings.SetToolSettings(context: Context,
-							dupFinderExcludePattern: new string[] {
-                            BuildParameters.RootDirectoryPath + "/**/Cake.Pandoc.Tests/**/*.cs",
-                            BuildParameters.RootDirectoryPath + "/**/Cake.Pandoc/**/*.AssemblyInfo.cs",
-							BuildParameters.RootDirectoryPath + "/**/Cake.Pandoc/PandocSettings.cs"
-							}
-);
+ToolSettings.SetToolSettings(context: Context);
 
 Build.RunDotNetCore();
