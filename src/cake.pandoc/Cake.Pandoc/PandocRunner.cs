@@ -59,6 +59,8 @@ namespace Cake.Pandoc
         {
             yield return "Pandoc.exe";
             yield return "Pandoc";
+            yield return "pandoc.exe";
+            yield return "pandoc";
         }
 
         protected override string GetToolName()

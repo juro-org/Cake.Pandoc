@@ -19,21 +19,32 @@
         <Authors>Jürgen Rosenthal-Buroh</Authors>
         <Copyright>Copyright © $(FullYear) — Jürgen Rosenthal-Buroh</Copyright>
         <Description>Cake addin to convert files from one markup format into another with pandoc.</Description>
-        <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://juergenrb.github.io/Cake.Pandoc</PackageProjectUrl>
-        <PackageTags>cake;addin;pandoc</PackageTags>
-        <RepositoryUrl>https://github.com/JuergenRB/Cake.Pandoc.git</RepositoryUrl>
-        <PackageReleaseNotes>https://github.com/JuergenRB/Cake.Pandoc/releases/tag/$(Version)</PackageReleaseNotes>
+        <PackageProjectUrl>https://github.com/juro-org/Cake.Pandoc</PackageProjectUrl>
+        <PackageTags>cake;addin;pandoc;cake-build;cake-addin;build;script;</PackageTags>
+        <RepositoryUrl>https://github.com/juro-org/Cake.Pandoc.git</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageReleaseNotes>https://github.com/juro-org/Cake.Pandoc/releases/tag/$(Version)</PackageReleaseNotes>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="PandocSettings.GeneralWriterOptions.cs" />
+      <Compile Remove="PandocSettings.OptionsAffectingSpecificWriters.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="$(ProjectDir)../../../README.md" Link="README.md" PackagePath="" Pack="true" />
+        <None Include="PandocSettings.OptionsAffectingSpecificWriters.cs" />
+        <None Include="PandocSettings.GeneralWriterOptions.cs" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Cake.Addin.Analyzer" Version="0.1.3">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Cake.Core" Version="1.2.0" PrivateAssets="All" />
-        <PackageReference Include="CakeContrib.Guidelines" Version="1.1.1">
+        <PackageReference Include="Cake.Core" Version="1.3.0" PrivateAssets="All" />
+        <PackageReference Include="CakeContrib.Guidelines" Version="1.3.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>

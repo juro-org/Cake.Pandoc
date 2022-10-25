@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=1.1.2
+#load nuget:?package=Cake.Recipe&version=3.0.1
 
 Environment.SetVariableNames();
 
@@ -7,22 +7,18 @@ BuildParameters.SetParameters(
     buildSystem: BuildSystem,
     sourceDirectoryPath: "./src/cake.pandoc",
     title: "Cake.Pandoc",
-    repositoryOwner: "JuergenRB",
+    masterBranchName: "main",
+    repositoryOwner: "juro-org",
     repositoryName: "Cake.Pandoc",
-    shouldRunGitVersion: true,
-    shouldExecuteGitLink: false,
-    shouldRunCodecov: true,
-    shouldDeployGraphDocumentation: false,
-    shouldRunDotNetCorePack: true);
+    shouldRunDotNetCorePack: true,
+    shouldUseDeterministicBuilds: true,
+    shouldRunCodecov: false,
+    preferredBuildAgentOperatingSystem: PlatformFamily.Linux,
+    preferredBuildProviderType: BuildProviderType.GitHubActions);
+
+
 
 BuildParameters.PrintParameters(Context);
-
-ToolSettings.SetToolSettings(context: Context,
-							dupFinderExcludePattern: new string[] {
-                            BuildParameters.RootDirectoryPath + "/**/Cake.Pandoc.Tests/**/*.cs",
-                            BuildParameters.RootDirectoryPath + "/**/Cake.Pandoc/**/*.AssemblyInfo.cs",
-							BuildParameters.RootDirectoryPath + "/**/Cake.Pandoc/PandocSettings.cs"	
-							}						
-);
+ToolSettings.SetToolSettings(context: Context);
 
 Build.RunDotNetCore();
