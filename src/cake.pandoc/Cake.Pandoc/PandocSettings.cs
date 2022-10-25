@@ -35,7 +35,6 @@ namespace Cake.Pandoc
     using Cake.Core;
     using Cake.Core.IO;
     using Cake.Core.Tooling;
-
     using System;
     using System.Linq;
     using System.Reflection;
@@ -49,12 +48,6 @@ namespace Cake.Pandoc
         }
 
         public FilePathCollection Files { get; }
-
-        #region General options
-
-       
-
-        #endregion General options
 
         public void Evaluate(ProcessArgumentBuilder builder, ICakeEnvironment environment)
         {

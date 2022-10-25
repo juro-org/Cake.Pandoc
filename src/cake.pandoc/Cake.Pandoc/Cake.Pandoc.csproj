@@ -21,7 +21,7 @@
         <Description>Cake addin to convert files from one markup format into another with pandoc.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/juro-org/Cake.Pandoc</PackageProjectUrl>
-        <PackageTags>cake;addin;pandoc;cake-build;cake-addin;</PackageTags>
+        <PackageTags>cake;addin;pandoc;cake-build;cake-addin;build;script;</PackageTags>
         <RepositoryUrl>https://github.com/juro-org/Cake.Pandoc.git</RepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageReleaseNotes>https://github.com/juro-org/Cake.Pandoc/releases/tag/$(Version)</PackageReleaseNotes>

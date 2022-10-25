@@ -1,13 +1,12 @@
-using Cake.Core.IO;
-using System.Runtime.Serialization;
-
 // https://pandoc.org/MANUAL.html#general-options
 
 namespace Cake.Pandoc
 {
+    using Cake.Core.IO;
+    using System.Runtime.Serialization;
+
     public partial class PandocSettings
     {
-
         /// <summary>
         /// Process the citations in the file, replacing them with rendered citations and adding a bibliography.Citation processing will not take place unless bibliographic data is supplied, either through an external file specified using the --bibliography option or the bibliography field in metadata, or via a references section in metadata containing a list of citations in CSL YAML format with Markdown formatting.The style is controlled by a CSL stylesheet specified using the --csl option or the csl field in metadata. (If no stylesheet is specified, the chicago-author-date style will be used by default.) The citation processing transformation may be applied before or after filters or Lua filters(see --filter, --lua-filter): these transformations are applied in the order they appear on the command line.For more information, see the section on Citations.
         /// </summary>
@@ -42,6 +41,6 @@ namespace Cake.Pandoc
         /// Use biblatex for citations in LaTeX output. This option is not for use with the --citeproc option or with PDF output. It is intended for use in producing a LaTeX file that can be processed with bibtex or biber.
         /// </summary>
         [DataMember(Name = "biblatex")]
-        public bool BibLaTeC { get; set; }
+        public bool BibLaTeX { get; set; }
     }
 }
